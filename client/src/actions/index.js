@@ -27,12 +27,7 @@ export const SUBMIT_SUCCESS = "SUBMIT_SUCCESS"
 export const SUBMIT_FAIL = "SUBMIT_FAIL"
 export const getData = () => dispatch => {
     dispatch({ type: SUBMIT_START });
-    // const token = localStorage.getItem('token')
-    // const config = {
-    //     headers: {
-    //         Authorization: token,
-    //     }
-    // }
+
     return axiosWithAuth()
         .get('http://localhost:3300/api/jokes')
         .then(res => {
