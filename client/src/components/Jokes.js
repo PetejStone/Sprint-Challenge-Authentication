@@ -38,7 +38,7 @@ class Jokes extends React.Component {
                     </div>
                     )}
                 </div>
-                <button className="register" onClick={this.logout}>Logout</button>
+                <button className="register" onClick={this.logout}>{!this.props.error ? "Logout" : "Go Back to Login"}</button>
             </div>
           
            
