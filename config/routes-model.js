@@ -1,10 +1,9 @@
 const db = require('../database/dbConfig.js')
 
 module.exports = {
-    find,
     add,
-    remove,
-    findById
+    findById,
+    findBy
 
 }
 
@@ -18,3 +17,8 @@ async function add(user) {
 
     return findById(id)
 }
+
+function findBy(filter) {
+    return db('users').where(filter) //returns the users where username = username
+}
+
