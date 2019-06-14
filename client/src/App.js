@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import {Route} from 'react-router-dom';
 import Login from './components/Login';
-import Users from './components/Users';
+import Jokes from './components/Jokes';
 //import PrivateRoute from "./PrivateRoute";
 
 function App() {

@@ -64,14 +64,16 @@ const initialState = {
             return {
             ...state,
             isLoading: false,
-            submitFail: true
+            submitFail: true,
+            error: true
             }
 
             case SUBMIT_SUCCESS:
             return {
             ...state,
             jokes: action.payload,
-            isLoading: false
+            isLoading: false,
+            error: false
             
             }
 

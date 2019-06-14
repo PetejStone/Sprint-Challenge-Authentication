@@ -1,0 +1,46 @@
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    & input {
+        height: 2rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    & label {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    & button {
+        padding: 1rem;
+        border: none;
+        background-color: limegreen;
+        color: white;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 1rem;  
+    } 
+}
+
+.register {
+    background-color: firebrick;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 300px;
+    padding: .5rem 0px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+}
+
+.new-user {
+    color: lime;
+}

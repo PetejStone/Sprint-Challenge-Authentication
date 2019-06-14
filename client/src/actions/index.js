@@ -32,8 +32,7 @@ export const getData = () => dispatch => {
         .get('http://localhost:3300/api/jokes')
         .then(res => {
             
-            
-            dispatch({ type: SUBMIT_SUCCESS, payload: res.data.users})
+            dispatch({ type: SUBMIT_SUCCESS, payload: res.data})
         })
         .catch(err => {
             console.log(err)
