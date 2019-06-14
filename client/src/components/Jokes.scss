@@ -1,0 +1,15 @@
+.jokes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+
+    & .joke {
+        margin: 10px;
+        color: white;
+        width: 300px;
+        padding: 2rem;
+        background-color: tan;
+        border-radius: 15px;
+    }
+}

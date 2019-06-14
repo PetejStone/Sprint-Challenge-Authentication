@@ -3,6 +3,7 @@ import React from 'react';
 
 import {getData, logOut} from '../actions'
 import {connect} from 'react-redux';
+import './Jokes.scss'
 
 class Jokes extends React.Component {
   
@@ -28,10 +29,14 @@ class Jokes extends React.Component {
     render() {
         return (
             <div>
-            {this.props.error ? `<h1>Welcome ${this.props.user.username }</h1>` : "You must be logged in to view jokes!"}
-                <div>
+                {!this.props.error ? <h1>Welcome {localStorage.getItem('username')}</h1> : <h1>You must be logged in to view jokes</h1> }
+                
+                <div className='jokes'>
                 {this.props.jokes.map(joke =>
-                    <h1>{joke.joke}</h1>)}
+                    <div className="joke">
+                        <h4>{joke.joke}</h4>
+                    </div>
+                    )}
                 </div>
                 <button className="register" onClick={this.logout}>Logout</button>
             </div>
@@ -45,7 +50,8 @@ class Jokes extends React.Component {
 const mapStateToProps = (state) => ({
     credentials: state.credentials,
     jokes: state.jokes,
-    user: state.user
+    user: state.user,
+    error: state.error
 })
 
 export default connect(mapStateToProps,{getData, logOut})(Jokes)
