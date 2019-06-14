@@ -1,10 +1,9 @@
 const axios = require('axios');
-//const router = require('express').Router()
 const bcrypt = require('bcryptjs'); // 
 const jwt = require('jsonwebtoken');
 const { authenticate } = require('../auth/authenticate');
 const Users = require('./routes-model.js')
-
+const secrets = require('../config/secrets.js')
 module.exports = server => {
   server.post('/api/register', register);
   server.post('/api/login', login);
@@ -64,3 +63,18 @@ function getJokes(req, res) {
 }
 
 
+
+function generateToken(user) { //brings in username and password generated at login
+  const payload = { //creates data object called payload -- all data is created by fn -- we can create any data we want for this token
+    subject: user.id, // sets subject == the user id
+    username: user.username, //sets username == username
+    
+  };
+
+  const options = { //options to be set
+    expiresIn: '1d', //have token last for 1 day
+  };
+   //returns the fn with a 'signature' set to the payload, signed with the secret key, and set options
+   //if user changes anything on the token on their end, signature will not sign.
+  return jwt.sign(payload, secrets.jwtSecret, options);
+}
